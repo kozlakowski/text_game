@@ -9,7 +9,7 @@ def starting_position():
 
 def right_left_move():
     global right_left
-    right_left = input("Go rigt or left? : ")
+    right_left = input("Go right or left? : ")
     if right_left == "right":
         return "So you've moved right!\n"
     elif right_left == "left":
@@ -33,8 +33,11 @@ def drink_or_not():
     if drinking_hm == "stay":
         return "You've lost the game, your laziness and lack of discipline made you do that"
     elif drinking_hm == "leave":
-        return "That's a good move, you are going back to the starting position('Rynek Główny')"
+        return "That's a good move, you are going back to the starting position('Rynek Główny')\n"
 
+def try_another_way():
+    return ("Now you are again in starting position. I recommend you to start a new game and fix your mistakes\n"
+    "by choosing another ways.\n")
 
 # TU ZACZYNA SIĘ KOD KONKRETNIE GRY, KOŃCZĄ SIĘ FUNKCJE
 print("Hello There ...\n")
@@ -63,9 +66,15 @@ if "yes" in first_decision:
     if right_left == "right":
         print(tavern_position())
         print(drink_or_not())
-
+        if drinking_hm == "stay":
+            exit()
+        elif drinking_hm == "leave":
+                print(starting_position())
+                print(try_another_way())
     elif right_left == "left":
         print(arsenal_position())
+
+
 
 
 
