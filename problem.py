@@ -25,6 +25,36 @@ def arsenal_position():
     return ("You're in mysterious place, it's an old arsenal. Usually nobody is here,\n"
     "but now you see a weird man standing in the corner. You should ask him about 'Stary Rudzielec'\n")
 
+def asking_a_stranger():
+    return ("An old man whispers to you : 'Hey, young man come here'\nYou are pretty scared but you come closer.\n"
+    "He tells you : 'If you want to find Stary Rudzielec you have to win my mini-game'")
+
+def mystery():
+    x = 5
+    while x>0:
+        global guess
+        guess = input("Which word in the dictionary is spelled incorrectly?(You can guess only 5 times, then you will lose) : ")
+        if guess == "incorrectly":
+            return "Congratulations"
+            break
+        elif x == 3:
+            print("Wrong ! Only 2 guesses left!")
+        elif x == 2:
+            print("Wrong ! LAST CHANCE!")
+        else:
+            print("Wrong")
+
+        x -= 1
+    if x == 0:
+        return "You lost the game. It happened because of your lack of knowledge and concentration"
+
+def speech():
+    return ("To find Stary Rudzielec you have to look at all the tips you got from the author of the game before\n"
+    "and find 4 main words of a sentence that tells a lot about our politics. At this level you mustn't be wrong.You have only one chance")
+
+
+
+
 def drink_or_not():
     print("Now you have to decide.You can stay here, start drinking and have fun or you can\n"
     "leave this place and go back to the starting position('Rynek Główny') and complete your mission.\n")
@@ -38,6 +68,7 @@ def drink_or_not():
 def try_another_way():
     return ("Now you are again in starting position. I recommend you to start a new game and fix your mistakes\n"
     "by choosing another ways.\n")
+
 
 # TU ZACZYNA SIĘ KOD KONKRETNIE GRY, KOŃCZĄ SIĘ FUNKCJE
 print("Hello There ...\n")
@@ -73,6 +104,28 @@ if "yes" in first_decision:
                 print(try_another_way())
     elif right_left == "left":
         print(arsenal_position())
+        print(asking_a_stranger())
+        print(mystery())
+        if guess == "incorrectly":
+            print("Now I will tell you where is Stary Rudzielec\n")
+            print(speech())
+            final_answer = input("Type your answer here : ")
+            final_answer = final_answer.upper()
+            if final_answer == "MAKE POLAND GREAT AGAIN":
+                print("You won the entire game. Congratulations\n")
+                print("Correct\n")
+                for i in range(5):
+                    print("MAKE POLAND GREAT AGAIN")
+            else:
+                print("You lost. It's because of your lack of focus")
+
+
+
+
+
+
+
+
 
 
 
